@@ -6,3 +6,5 @@
 
 画像を作る。
 
+## 参考URL
+[Rails ポリモーフィックとは何なのか](https://qiita.com/itkrt2y/items/32ad1512fce1bf90c20b)

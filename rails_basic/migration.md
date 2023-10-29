@@ -39,4 +39,24 @@ Railsにおけるカラムのindexは、データベースにおける検索パ�
 add_index :users, :email
 ただし、indexはデータを追加、更新、削除する速度を少し遅くする可能性もあるから、必要なカラムにだけ作るようにしようダナ。
 
+## migration version管理
 
+migrationの適応
+```
+bin/rails db:migrate
+```
+
+指定したmigrationを適応
+```
+bin/rails db:migrate VERSION=バージョン名
+```
+
+
+1つ前のversionに戻す
+```
+bin/rails db:rollback
+```
+
+## 参考URL
+
+[railsガイド migration](https://railsguides.jp/active_record_migrations.html#%E6%96%B0%E3%81%97%E3%81%84%E3%82%AB%E3%83%A9%E3%83%A0%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B)

@@ -44,4 +44,37 @@ i.fa.fa-youtube-play(style='display: inline')
 i.fa.fa-twitter(style='display: inline')
 ```
 
-## 
+## それぞれのURL,個別のツイートと動画を特定する。
+
+### case youtube
+
+- モデルに以下を追加（embed.rb）
+```
+def split_id_from_youtube_url
+	identifier.split('/').last if youtube?
+end
+```
+
+- viewで参照できるように(_embed_youtube.html.slim)
+```
+.embed-youtube
+	= content_tag 'iframe', nil, width: width, height: height, src: "https://www.youtube.com/embed/#{embed.split_id_from_youtube_url}", \
+		frameborder: 0, gesture: 'media', allow: 'encrypted-media', allowfullscreen: true
+```
+
+### case twitter
+
+[twitteを特定して埋め込めるようにするサイト](https://publish.twitter.com/#)
+
+- viewで参照できるように(_embed_twitter.html.slim)
+
+```
+.embed-twitter
+	blockquote.twitter-tweet
+		a href="#{embed.identifier}"
+	script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"
+```
+ 
+
+## 参考URL
+[未経験からWebエンジニアを目指す](https://osamudaira.com/401/#toc2)

@@ -48,7 +48,7 @@
 ``` Ruby cord ```
 
 コードに名前をつける
-```ruby.rb
+```ruby:ruby.rb
 sample_cord
 ```
 

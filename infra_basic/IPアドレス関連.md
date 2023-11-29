@@ -17,8 +17,6 @@
 
 (自分のグローバルIPアドレスを確認するサイト)[https://www.cman.jp/network/support/go_access.cgi]
 
-terminalでの
-
 ### プライベートIPアドレスとは
 LAN(内のネットワーク)のIPアドレス
 

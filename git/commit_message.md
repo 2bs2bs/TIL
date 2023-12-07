@@ -26,6 +26,7 @@
 |Move|oooをxxxに移動|
 |Change|oooをxxxに変更|
 
+prefix:接頭語
 
 ### Subjectに何をしたのかを書く
 

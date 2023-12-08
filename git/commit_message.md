@@ -19,7 +19,7 @@
 |:-:|:-:|
 |Add|機能、ファイルを追加|
 |Fix|コードなどを修正|
-|Inmporve|コードなどを改善|
+|Imporve|コードなどを改善|
 |Update|パッケージやDocumentを更新する|
 |Remove|ファイルやコードを削除|
 |Rename|名前を変更|

@@ -21,9 +21,13 @@
       <main>
         <div class="container">
           <section>
-            <h1>やることリスト</h1>
-            <ul id="list">
-            </ul>
+            <table>
+              <tr>
+                <td id="title"></td>
+                <td id="price"></td>
+                <td id="stock"></td>
+              </tr>
+            </table>
           </section>
         </div><!-- /.container -->
       </main>
@@ -37,13 +41,21 @@
       <script>
         'user strict';
 
-        let todo = ['デザインカンプ作成', 'データ整理', '勉強会申し込み', '牛乳買う']
-        todo.push('歯医者に行く');
+        let jsbook = {title: 'Javascript入門', price: 2500, stock: 3};
+        // console.log(jsbook);
+        // console.log(jsbook.title);
+        // console.log(jsbook['price']);
+        // jsbook.stock = 10;
+        // console.log(jsbook.stock);
         
-        for(let item of todo){
-          const li = `<li>${item}</li>`;
-          document.getElementById('list').insertAdjacentHTML('beforeend', li);
-        }
-      </script>
+        // for(let p in jsbook) {
+        //   console.log(p + '=' + jsbook[p]);
+        // }
+
+        document.getElementById('title').textContent = jsbook.title;
+        document.getElementById('price').textContent = jsbook.price;
+        document.getElementById('stock').textContent = jsbook.stock;
+
+        </script>
     </body>
   </html>

@@ -49,7 +49,7 @@
         <div class="container">
           <section>
             <div id="center">
-              <img src="img1.jpg" alt="bigimg">
+              <img src="img1.jpg" id="bigimg">
             </div>
             <ul>
               <li><img src="thumb-img1.jpg" class="thumb" data-image="img1.jpg"></li>
@@ -73,7 +73,7 @@
         const thumb = document.querySelectorAll('.thumb');
         thumb.forEach(function(item, index){
           item.onclick = function(){
-            console.log(this.dataset.image);
+            document.getElementById('bigimg').src = this.dataset.image;
           }
         });
       </script>

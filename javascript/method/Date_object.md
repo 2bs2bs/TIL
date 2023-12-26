@@ -24,13 +24,15 @@ const ooo = new Date(2025, 10, 10);
 - それ以降はあってもなくてもOK。省略すれば「1日」「0時」「0分」「0秒」
 
 ```
-new Date(year, month, day, hour, min, sec, m/s)```
+new Date(year, month, day, hour, min, sec, m/s)
+```
 
 ## 年、月、日を個別に取得
 注意点
 - getMonthだけ注意。  こいつは「実際の月-1」で取得する。  取得できた月の数字に+1する
 
 |method|descript|
+|:-:|:-:|
 |getFullYear()|年を取得|
 |getMonth()|月を0~11の数値で取得する(0が1月)|
 |getDate()|日を取得|

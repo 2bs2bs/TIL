@@ -1,0 +1,34 @@
+# document of introduction ruby for mac_m1
+
+## insatll homebrew
+
+## install rbenv
+
+	### Check the installable ruby
+		```
+			rbenv install -l
+		```
+			or
+		```
+			rbenv insatll --list
+		```
+
+	### install ruby
+		```
+			rbenv install [ruby_version
+		```]
+
+	### swich ruby version
+		`rbenv global [ruby_version(for example 3.3.0)]
+
+
+## install ruby
+	### install rails
+		`gem rails install`
+
+
+## 参考URL
+[https://zenn.dev/osuzuki/articles/a535b2840bbea3]
+[https://qiita.com/jiko797torayo/items/0cf40f100b5e3354fd67]
+[https://chikinmasa.org/ruby_install/]
+[https://style.potepan.com/articles/31248.html]

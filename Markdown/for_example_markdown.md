@@ -22,7 +22,17 @@
 ## リンクの挿入
 [タイトル](URL)
 
-[page内link](#top)
+- page内リンク
+  ```
+  [page内link](#top)
+  ```
+  [page内link](#top)
+
+- 同じディレクトリ内の別ページへのリンク
+  ```
+  [別ページへのリンク](PATH)
+  ```
+  [markdownの書き方](about_markdown.md)
 
 ## 画像の挿入
 ![代替テキスト](URL "タイトル")
@@ -88,6 +98,7 @@ sample_cord
 \ ←これの打ち方は⌥＋￥
 
 ## 折りたたみ（トグルのやつ）
-<details><summary>最初から表示される方</summary>
-中に格納される方
-</datails>
+  <details>
+    <summary>最初から表示される方</summary>
+    中に格納される方
+  </details>  

@@ -41,3 +41,9 @@ git reset --soft HEAD^
 ```
 git reset --hard HEAD^
 ```
+
+## github上に上げる際追跡を終える方法
+	```
+	git rm --cached 追跡をやめたいファイル
+	```
+ これでcommitすることで追跡を終えることできる。fileは削除されない

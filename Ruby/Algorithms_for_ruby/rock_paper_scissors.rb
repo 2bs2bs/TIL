@@ -1,14 +1,20 @@
-def calculate_wins(first, second)
-  (first == "G" && second == "C") || (first == "C" && second == "P") || (first == "P" && second == "G")
+WIN_CONDITIONS = {'G' => 'C', 'C' => 'P', 'P' => 'G'}
+
+def win?(first, second)
+  WIN_CONDITIONS[first] == second
+end
+
+def get_gestures
+  gets.chomp.split(' ')
 end
 
 play_counts = gets.to_i
 wins_count = 0
 
-1.upto(play_counts) do
-  gesture1, gesture2 = gets.split(' ')
+(1..play_counts).each do
+  gesture1, gesture2 = get_gestures
 
-  if calculate_wins(gesture1, gesture2)
+  if win?(gesture1, gesture2)
     wins_count += 1
   end
 end

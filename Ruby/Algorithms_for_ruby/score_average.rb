@@ -32,7 +32,7 @@ truncated_ave = (ave * 10).floor / 10.0
 puts truncated_ave
 
 
-= begin
+=begin
 あなたはある競技に参加しています。
 この競技では N 人の審査員がそれぞれ最大 100 点の点数を出し、それらをもとに得点を決める方式を取っています。
 
@@ -47,4 +47,4 @@ puts truncated_ave
 
 出力例1
 81.2
-= end
+=end

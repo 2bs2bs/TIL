@@ -25,6 +25,62 @@
   ...Formatter: データ整形のためのクラス
 1. 対象や機能がクラス名を読んだ際に分かる単語を選択する。
 
+## 引数の設定
+PHPでクラスを作成し、コンストラクタで引数を設定する方法は以下のように行う。
+
+```
+<?php
+class MyClass {
+    private $property;
+
+    // コンストラクタで引数を受け取る
+    public function __construct($value) {
+        $this->property = $value;
+    }
+
+    // プロパティを取得するメソッド
+    public function getProperty() {
+        return $this->property;
+    }
+}
+
+// クラスのインスタンスを作成する際に引数を渡す
+$instance = new MyClass('Hello');
+echo $instance->getProperty(); // 出力: Hello
+?>
+```
+
+このように、クラスのコンストラクタ（__constructメソッド）で引数を受け取り、プロパティに設定することができる
+
+### 引数のデフォルト
+```
+  private $name;
+  
+  public function __construct($value = "default"){
+    $this->name = $value;
+  }
+```
+
+## 静的メソッド
+
+クラス名::関数();で呼び出すのは、静的メソッド。
+
+静的メソッドは、インスタンス化せずにクラス名を使って直接呼び出すことができるメソッド。
+```
+<?php
+  class MyClass {
+    // 静的メソッドの定義
+    public static function myStaticMethod() {
+        return "Hello, RUNTEQ!";
+    }
+  }
+
+  // 静的メソッドの呼び出し
+  cho MyClass::myStaticMethod(); // 出力: Hello, RUNTEQ!
+?>
+```
+このように、MyClass::myStaticMethod();のような形で呼び出す。
+
 ## カプセル化
 カプセル化とはクラス外から呼び出す必要ないものを秘匿化すること。
 

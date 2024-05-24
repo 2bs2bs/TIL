@@ -61,6 +61,38 @@ echo $instance->getProperty(); // 出力: Hello
   }
 ```
 
+## クラス関数
+```
+<?php
+class Shape {
+    private $bottom;
+    private $height;
+    
+    public function __construct($bottom, $height){
+      $this->bottom = $bottom;
+      $this->height = $height;
+    }
+    
+    private function calculation_triangel(){
+      return $this->bottom * $this->height / 2;
+    }
+    
+    private function calculation_squea(){
+      return $this->bottom * $this->height;
+    }
+    
+    public function report(){
+      $triangel_area = $this->calculation_triangel();
+      $squea_area = $this->calculation_squea();
+      return "底辺{$this->bottom}、高さの場合{$this->height}、三角形の面積は{$triangel_area}、四角形の面積は{$squea_area}";
+    }
+}
+
+$shape = new Shape(10, 5);
+print $shape->report();
+?>
+```
+
 ## 静的メソッド
 
 クラス名::関数();で呼び出すのは、静的メソッド。

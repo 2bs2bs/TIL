@@ -131,5 +131,36 @@ print $shape->report();
 ?>
 ```
 
+継承元のメソッドを継承先を呼び出す
+```
+<?php
+class Enginner {
+    private $name;
+    
+    public function __construct($name){
+      $this->name = $name;
+    }
+    
+    public function getName(){
+      return $this->name;
+    }
+}
+
+class BackendEngineer extends Enginner {
+    # === 以下に記載 ===
+    public function identify(){
+      $name = $this->getName();
+      return "{$name}はバックエンドエンジニアです";
+    }
+}
+
+$engineer = new BackendEngineer('俺');
+print $engineer->identify();
+# => 俺はバックエンドエンジニアです。
+?>
+
+```
+
+
 ## 参考
 [公式リファレンス](https://www.php.net/manual/ja/language.oop5.php)

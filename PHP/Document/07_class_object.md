@@ -160,7 +160,7 @@ print $engineer->identify();
 ?>
 
 ```
-
+[継承について](https://www.php.net/manual/ja/language.oop5.inheritance.php)
 
 ## 参考
 [公式リファレンス](https://www.php.net/manual/ja/language.oop5.php)

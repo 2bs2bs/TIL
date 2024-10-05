@@ -1,29 +1,25 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import DirectiveModelTrim from '../components/DirectiveModelTrim.vue'
+import type { RouteRecordRaw } from 'vue-router'
+import AppTop from "@/views/AppTop.vue";
+
+const routeSettings: RouteRecordRaw[] = [
+  {
+    path: "/",
+    name: "AppTop",
+    component: AppTop
+  },
+  {
+    path: "/member/memberList",
+    name: "MemberList",
+    component: () => {
+      return import("@/views/member/MemberList.vue");
+    },
+  }
+];
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: HomeView
-    },
-    {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue')
-    },
-    {
-      path: '/directive-model-trim',
-      name: 'directive-model-trim',
-      component: DirectiveModelTrim
-    }
-  ]
-})
+  routes: routeSettings
+});
 
 export default router

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, reactive, provide } from 'vue';
+import { ref, reactive, provide } from "vue";
 import {RouterView} from 'vue-router';
 import type {Member} from "@/interfaces";
 
@@ -7,13 +7,6 @@ const memberList = new Map<number, Member>();
 memberList.set(33456, {id: 33456,name: "田中太郎", email: "bow@exam@le.com", points: 35, note: "初回入会特典あり"});
 memberList.set(47783, {id: 47783,name: "鈴木二郎", email: "mue@exam@le.com", points: 53});
 provide("memberList", reactive(memberList));
-
-// const inputNameBind = ref("しんちゃん");
-// const inputNameOn = ref("ななし");
-// const onInputName = (event: Event): void => {
-//   const element = event.target as HTMLInputElement;
-//   inputNameOn.value = element.value;
-// }
 </script>
 
 <template>
@@ -22,16 +15,6 @@ provide("memberList", reactive(memberList));
   </header>
   <main>
     <RouterView />
-  <!-- <div> -->
-    <!-- <section>
-      <!-- <input type="text" v-bind:value="inputNameBind"> -->
-    <!-- </section> -->
-    <!-- <br> -->
-    <!-- <section> -->
-      <!-- <input type="text" v-on:input="onInputName"> -->
-      <!-- <p>{{ inputNameOn }}</p> -->
-    <!-- </section> -->
-  <!-- </div>  -->
   </main>
 </template>
 

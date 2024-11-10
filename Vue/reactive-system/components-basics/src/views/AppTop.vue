@@ -25,6 +25,22 @@
         <p><RouterLink v-bind:to="{name: 'DirectiveLoopBasic'}"  >6-2-1</RouterLink></p>
         <p><RouterLink v-bind:to="{name: 'DirectiveLoopAssociative'}"  >6-2-2</RouterLink></p>
         <p><RouterLink v-bind:to="{name: 'DirectiveLoopMap'}"  >6-2-3</RouterLink></p>
+        <p><RouterLink v-bind:to="{name: 'ListchangeFilter'}"  >6-3-1</RouterLink></p>
+        <p><RouterLink v-bind:to="{name: 'ListchangeArray'}"  >6-3-2</RouterLink></p>
+      </div>
+      <div>
+        <p><RouterLink v-bind:to="{name: 'ChangeCocktail'}"  >7-1-1</RouterLink></p>
+        <p><RouterLink v-bind:to="{name: 'WatchEffect'}">7-1-2</RouterLink></p>
+        <p><RouterLink v-bind:to="{name: 'LifecycleHooks'}" >7-2-1</RouterLink></p>
+        <p><RouterLink v-bind:to="{name: 'Optionsapi'}" >7-4-2</RouterLink></p>
+      </div>
+      <div>
+        <p><RouterLink v-bind:to="{name: 'AppOneSection'}" >8-1-1</RouterLink></p>
+        <p><RouterLink v-bind:to="{name: 'AppWithModel'}" >8-2-1</RouterLink></p>
+        <p><RouterLink v-bind:to="{name: 'AppOneInfo'}" >8-3-1</RouterLink></p>
+        <p><RouterLink v-bind:to="{name: 'AppOneInfoBind'}" >8-3-3</RouterLink></p>
+        <p><RouterLink v-bind:to="{name: 'AppOneInfoVfor'}" >8-3-4</RouterLink></p>
+        <p><RouterLink v-bind:to="{name: 'AppOneMember'}" >8-4-1</RouterLink></p>
       </div>
     </section>
   </div>

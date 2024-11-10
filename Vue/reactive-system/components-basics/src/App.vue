@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, reactive, provide } from "vue";
+import { reactive, provide } from "vue";
 import {RouterView} from 'vue-router';
 import type {Member} from "@/interfaces";
 
@@ -19,11 +19,11 @@ provide("memberList", reactive(memberList));
 </template>
 
 <style>
-main{
+/* main{
   border: blue 1px solid;
   padding: 10px;
-}
-#breadcrumbs ul li {
+} */
+/* #breadcrumbs ul li {
   display: inline;
   list-style-type: none;
 }
@@ -41,5 +41,5 @@ main{
 }
 #breadcrumbs ul li:first-child:before{
   content: none;
-}
+} */
 </style>

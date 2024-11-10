@@ -25,6 +25,7 @@ import AppOneInfo from '@/components/section8/AppOneInfo.vue';
 import AppOneInfoBind from '@/components/section8/AppOneInfoBind.vue';
 import AppOneInfoVfor from '@/components/section8/AppOneInfoVfor.vue';
 import AppOneMember from '@/components/section8/AppOneMember.vue';
+import AppOneEmitSection from '@/components/section8/AppOneEmitSection.vue';
 
 const routeSettings: RouteRecordRaw[] = [
   {
@@ -158,6 +159,11 @@ const routeSettings: RouteRecordRaw[] = [
     path: "/app-one-member",
     name: "AppOneMember",
     component: AppOneMember
+  },
+  {
+    path: "/app-one-emit-section",
+    name: "AppOneEmitSection",
+    component: AppOneEmitSection
   },
 ];
 

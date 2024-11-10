@@ -41,6 +41,7 @@
         <p><RouterLink v-bind:to="{name: 'AppOneInfoBind'}" >8-3-3</RouterLink></p>
         <p><RouterLink v-bind:to="{name: 'AppOneInfoVfor'}" >8-3-4</RouterLink></p>
         <p><RouterLink v-bind:to="{name: 'AppOneMember'}" >8-4-1</RouterLink></p>
+        <p><RouterLink v-bind:to="{name: 'AppOneEmitSection'}" >8-5-1</RouterLink></p>
       </div>
     </section>
   </div>

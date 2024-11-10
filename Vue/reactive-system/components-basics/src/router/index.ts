@@ -13,6 +13,18 @@ import DirectiveShow from '@/components/section6/DirectiveShow.vue';
 import DirectiveLoopBasic from '@/components/section6/DirectiveLoopBasic.vue';
 import DirectiveLoopAssociative from '@/components/section6/DirectiveLoopAssociative.vue';
 import DirectiveLoopMap from '@/components/section6/DirectiveLoopMap.vue';
+import ListchangeFilter from '@/components/section6/ListchangeFilter.vue';
+import ListchageArray from '@/components/section6/ListchageArray.vue';
+import ChangeCocktail from '@/components/section7/ChangeCocktail.vue';
+import WatchEffect from '@/components/section7/WatchEffect.vue';
+import LifecycleHooks from '@/components/section7/LifecycleHooks.vue';
+import Optionsapi from '@/components/section7/Optionsapi.vue';
+import AppOneSection from '@/components/section8/AppOneSection.vue';
+import AppWithModel from '@/components/section8/AppWithModel.vue';
+import AppOneInfo from '@/components/section8/AppOneInfo.vue';
+import AppOneInfoBind from '@/components/section8/AppOneInfoBind.vue';
+import AppOneInfoVfor from '@/components/section8/AppOneInfoVfor.vue';
+import AppOneMember from '@/components/section8/AppOneMember.vue';
 
 const routeSettings: RouteRecordRaw[] = [
   {
@@ -86,6 +98,66 @@ const routeSettings: RouteRecordRaw[] = [
     path: "/directive-loop-map",
     name: "DirectiveLoopMap",
     component: DirectiveLoopMap
+  },
+  {
+    path: "/listchange-filter",
+    name: "ListchangeFilter",
+    component: ListchangeFilter
+  },
+  {
+    path: "/listchange-array",
+    name: "ListchangeArray",
+    component: ListchageArray
+  },
+  {
+    path: "/change-cocktail",
+    name: "ChangeCocktail",
+    component: ChangeCocktail
+  },
+  {
+    path: "/watch-effect",
+    name: "WatchEffect",
+    component: WatchEffect
+  },
+  {
+    path: "/lifecycle-hooks",
+    name: "LifecycleHooks",
+    component: LifecycleHooks
+  },
+  {
+    path: "/optionsapi",
+    name: "Optionsapi",
+    component: Optionsapi
+  },
+  {
+    path: "/app-one-section",
+    name: "AppOneSection",
+    component: AppOneSection
+  },
+  {
+    path: "/app-with-model",
+    name: "AppWithModel",
+    component: AppWithModel
+  },
+  {
+    path: "/app-one-info",
+    name: "AppOneInfo",
+    component: AppOneInfo
+  },
+  {
+    path: "/app-one-info-bind",
+    name: "AppOneInfoBind",
+    component: AppOneInfoBind
+  },
+  {
+    path: "/app-one-info-vfor",
+    name: "AppOneInfoVfor",
+    component: AppOneInfoVfor
+  },
+  {
+    path: "/app-one-member",
+    name: "AppOneMember",
+    component: AppOneMember
   },
 ];
 

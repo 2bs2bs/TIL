@@ -19,27 +19,57 @@ interface Props {
 上記で定義したインターフェイス名をdefineProps()関数を実行してPropsとして使用する
 ジェネリック型指定を行う
 ```
-defineProps<指定したインターフェイス名>()
+defineProps<指定したインターフェイス名>();
 ```
 
 ## 親からPropsにデータを渡す方法
 これは親コンポーネントに記載
 ```
-<子コンポーネント
+<子コンポーネント名
   各Prop名="このPropsに渡す値"
   ⋮
 />
 ```
 テンプレート変数を渡すことも可能
 ```
-<子コンポーネント
+<子コンポーネント名
   v-bind:Prop名="テンプレート変数名"
-  ⋮
+  :Props名="テンプレート変数名"←省略形
 />
 ```
 ## v-forを使用することでコンポーネント自体を要素の数だけレンダリングすることができる
 ```
 <子コンポーネント
   v-for="[id, content] in hogeList"
+  v-bind:key="id"
+  v-bind:Props名="content.~~"
+  v-bind:Props名="content.=="
 >
+```
+## スクリプトブロックでPropsの値を利用する方法
+```
+interface Props {
+  id: number;
+  title: string;
+  point: number;
+}
+
+const props = defineProps<Props>();
+↑これでpropsのプロパティにアクセスできるようになる。(props.titleなど)
+```
+ただし、propsはreadonlyのため値を変更するためには別の変数に入れて上げる必要がありますよ。
+↓
+```
+const point = ref(props.point);
+```
+
+## Propsのデフォルト値を渡す方法
+```
+withDefaults(
+  defineProps<Props>();
+  {
+    非必須Prop名: デフォルト値,
+    ⋮
+  }
+)
 ```

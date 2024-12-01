@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import type { RouteRecordRaw } from 'vue-router'
-import AppTop from "@/views/AppTop.vue";
+import AppTop from '@/views/AppTop.vue';
 import DirectiveTwoway from "@/components/section5/DirectiveTwoway.vue";
 import DirectiveHtml from '@/components/section5/DirectiveHtml.vue';
 import DirectivePre from '@/components/section5/DirectivePre.vue';
@@ -28,6 +28,8 @@ import AppOneMember from '@/components/section8/AppOneMember.vue';
 import AppOneEmitSection from '@/components/section8/AppOneEmitSection.vue';
 import AppOneEmitMember from '@/components/section8/AppOneEmitMember.vue';
 import AppOneEmitModelMember from '@/components/section8/AppOneEmitModelMember.vue';
+import AppSlotOneSection from '@/components/section9/AppSlotOneSection.vue';
+import SlotFallbackOneSectionApp from '@/components/section9/SlotFallbackOneSectionApp.vue';
 
 const routeSettings: RouteRecordRaw[] = [
   {
@@ -176,6 +178,16 @@ const routeSettings: RouteRecordRaw[] = [
     path: "/app-one-emit-model-member",
     name: "AppOneEmitModelMember",
     component: AppOneEmitModelMember
+  },
+  {
+    path: "/app-slot-one-section",
+    name: "AppSlotOneSection",
+    component: AppSlotOneSection
+  },
+  {
+    path: "/slot-fallback-one-section-app",
+    name: "SlotFallbackOneSectionApp",
+    component: SlotFallbackOneSectionApp
   },
 ];
 

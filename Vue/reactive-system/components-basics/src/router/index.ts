@@ -30,6 +30,9 @@ import AppOneEmitMember from '@/components/section8/AppOneEmitMember.vue';
 import AppOneEmitModelMember from '@/components/section8/AppOneEmitModelMember.vue';
 import AppSlotOneSection from '@/components/section9/AppSlotOneSection.vue';
 import SlotFallbackOneSectionApp from '@/components/section9/SlotFallbackOneSectionApp.vue';
+import NamedApp from '@/components/section9/NamedApp.vue';
+import ScopedApp from '@/components/section9/ScopedApp.vue';
+import DynamicApp from '@/components/section9/DynamicApp.vue';
 
 const routeSettings: RouteRecordRaw[] = [
   {
@@ -188,6 +191,21 @@ const routeSettings: RouteRecordRaw[] = [
     path: "/slot-fallback-one-section-app",
     name: "SlotFallbackOneSectionApp",
     component: SlotFallbackOneSectionApp
+  },
+  {
+    path: "/named-app",
+    name: "NamedApp",
+    component: NamedApp
+  },
+  {
+    path: "/scoped-app",
+    name: "ScopedApp",
+    component: ScopedApp
+  },
+  {
+    path: "/dynamic-app",
+    name: "DynamicApp",
+    component: DynamicApp
   },
 ];
 

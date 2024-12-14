@@ -45,6 +45,9 @@
     <section>
       <p><RouterLink v-bind:to="{name: 'AppSlotOneSection'}" >9-1-1</RouterLink></p>
       <p><RouterLink v-bind:to="{name: 'SlotFallbackOneSectionApp'}" >9-1-2</RouterLink></p>
+      <p><RouterLink v-bind:to="{name: 'NamedApp'}" >9-2-1</RouterLink></p>
+      <p><RouterLink v-bind:to="{name: 'ScopedApp'}" >9-3-1</RouterLink></p>
+      <p><RouterLink v-bind:to="{name: 'DynamicApp'}" >9-4-1</RouterLink></p>
     </section>
   </div>
 </template>

@@ -49,6 +49,9 @@
       <p><RouterLink v-bind:to="{name: 'ScopedApp'}" >9-3-1</RouterLink></p>
       <p><RouterLink v-bind:to="{name: 'DynamicApp'}" >9-4-1</RouterLink></p>
     </section>
+    <section>
+      <p><RouterLink v-bind:to="{name: 'MemberList'}">会員登録はこちら</RouterLink></p>
+    </section>
   </div>
 </template>
 

@@ -19,7 +19,7 @@ provide("memberList", reactive(memberList));
 </template>
 
 <style>
-/* main{
+main{
   border: blue 1px solid;
   padding: 10px;
 }
@@ -41,5 +41,5 @@ provide("memberList", reactive(memberList));
 }
 #breadcrumbs ul li:first-child:before{
   content: none;
-} */
+}
 </style>

@@ -22,8 +22,8 @@ provide("memberList", reactive(memberList));
 /* main{
   border: blue 1px solid;
   padding: 10px;
-} */
-/* #breadcrumbs ul li {
+}
+#breadcrumbs ul li {
   display: inline;
   list-style-type: none;
 }

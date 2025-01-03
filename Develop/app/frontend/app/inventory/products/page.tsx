@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import productsData from "./sample/dummy_products.json";
 import Link from "next/link";
 
@@ -18,10 +18,28 @@ export default function Page() {
     setData(productsData);
   },[])
 
+  // 新規登録処理、新規登録行の表示状態を保持
+  const [shownNewRow, setShownNewRow] = useState(false);
+  const handeleShowNewRow = (event: React.MouseEvent<HTMLElement>) => {
+    event.preventDefault();
+    setShownNewRow(true)
+  };
+
+  const handleAddCancel = (event: React.MouseEvent<HTMLElement>) => {
+    event.preventDefault();
+    setShownNewRow(false)
+  };
+
+  const handelAdd = (event: React.MouseEvent<HTMLElement>) => {
+    event.preventDefault();
+    // バックエンドを使用した登録処理を呼ぶ
+    setShownNewRow(false)
+  };
+
   return (
     <>
       <h2>商品一覧</h2>
-      <button>商品を追加する</button>
+      <button onClick={ handeleShowNewRow }>商品を追加する</button>
       <table>
         <thead>
           <tr>
@@ -34,6 +52,16 @@ export default function Page() {
           </tr>
         </thead>
         <tbody>
+          {shownNewRow ? (
+            <tr>
+              <td></td>
+              <td><input type="text" /></td>
+              <td><input type="number" /></td>
+              <td><input type="text" /></td>
+              <td></td>
+              <td><button onClick={handleAddCancel}>キャンセル</button><button onClick={handelAdd}>登録する</button></td>
+            </tr>
+          ): ""}
           {data.map((data: any) => (
             <tr key={data.id}>
               <td>{data.id}</td>

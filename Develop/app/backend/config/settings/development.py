@@ -8,6 +8,6 @@ DATABASES = {
     'PASSWORD': 'password',
     'HOST': 'host.docker.internal',
     'PORT': '53306',
-    'ATMIC_REQUESTS': True
+    'ATOMIC_REQUESTS': True
   }
 }

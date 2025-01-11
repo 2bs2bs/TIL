@@ -90,11 +90,12 @@ export default function InventoryLayout({
               noWrap
               component="div"
               sx={{ flexGrow: 1}}
-              >
+            >
               在庫管理システム
             </Typography>
             <Button
               variant="contained"
+              startIcon={<LogoutIcon />}
               onClick={() => handleLogout()} 
             >
               ログアウト
@@ -125,7 +126,7 @@ export default function InventoryLayout({
             bottom: 0,
             background: "#1976d2",
           }}
-          >
+        >
           <Typography variant="caption" color="white">
             ©2023 full stack web development
           </Typography>

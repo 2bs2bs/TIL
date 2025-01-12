@@ -3,8 +3,8 @@ from django.shortcuts import render
 # Create your views here.
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .models import Product
-from .serializers import ProductSerializer
+from .models import Product, Purchase, Sales
+from .serializers import ProductSerializer, PurchaseSerializer, SaleSerializer
 from rest_framework import status
 
 class ProductView(APIView):
@@ -19,3 +19,32 @@ class ProductView(APIView):
     queryset = Product.objects.all()
     serializer = ProductSerializer(queryset, many=True)
     return Response(serializer.data, status.HTTP_200_OK)
+  
+  # 商品を登録する
+  def post(self, request, format=None):
+    serializer = ProductSerializer(data=request.data)
+    # validationを通らなかった場合、例外を投げる
+    serializer.is_valid(raise_exception=True)
+    # 検証したデータを永続化する
+    serializer.save()
+    return Response(serializer.data, status.HTTP_201_CREATED)
+
+class PurchaseView(APIView):
+  def post(self, request, format=None):
+    """
+    仕入れ情報を登録する
+    """
+    serializer = PurchaseSerializer(data=request.data)
+    serializer.is_valid(raise_exception=True)
+    serializer.save()
+    return Response(serializer.data, status.HTTP_201_CREATED)
+  
+class SalesView(APIView):
+  def post(self, request, format=None):
+    """
+    売上情報を登録する
+    """
+    serializer = SaleSerializer(data=request.data)
+    serializer.is_valid(raise_exception=True)
+    serializer.save()
+    return Response(serializer.data, status.HTTP_201_CREATED)

@@ -15,3 +15,10 @@ class SaleSerializer(serializers.ModelSerializer):
   class Meta:
     model = Sales
     fields = '__all__'
+
+class InventorySerizalizer(serializers.Serializer):
+  id = serializers.IntegerField()
+  unit = serializers.IntegerField()
+  quantity = serializers.IntegerField()
+  type = serializers.IntegerField()
+  date = serializers.DateTimeField()

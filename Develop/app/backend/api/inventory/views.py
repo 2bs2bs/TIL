@@ -8,7 +8,9 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from .models import Product, Purchase, Sales
 from .serializers import InventorySerializer, ProductSerializer, PurchaseSerializer, SaleSerializer
-from rest_framework import status
+from rest_framework import generics, status, views, viewsets
+from rest_framework.permissions import IsAuthenticated
+from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.exceptions import NotFound
 from rest_framework.response import Response
@@ -18,6 +20,13 @@ class ProductView(APIView):
   商品操作に関する関数
   """
 
+  # 認証クラスの指定
+  authentication_classes = [JWTAuthentication]
+  # アクセス許可の指定
+  # 認証済みのリクエスト許可
+  permission_classes = [IsAuthenticated]
+
+  # 商品操作に関する関数で共通で使用する商品取得関数
   def get_object(self, pk):
     try:
       return Product.objects.get(pk=pk)
@@ -27,7 +36,7 @@ class ProductView(APIView):
   def get(self, request, id=None, format=None):
     # 商品の一覧もしくは一意の商品を取得する
     if id is None:
-      queryset = Product.obujects.all()
+      queryset = Product.objects.all()
       serializer = ProductSerializer(queryset, many=True)
     else:
       product = self.get_object(id)
@@ -76,7 +85,7 @@ class SalesView(APIView):
     # 在庫テーブルのレコードを取得
     purchase = Purchase.objects.filter(product_id=request.data['product']).aggregate(quantity_sum=Coalesce(Sum('quantity'), 0))
     # 卸しテーブルのレコードを取得
-    sales = Sales.objects.filter(product_id=request.date['product']).aggregate(quantity_sum=Coalesce(Sumt('quantity'), 0))
+    sales = Sales.objects.filter(product_id=request.date['product']).aggregate(quantity_sum=Coalesce(Sum('quantity'), 0))
 
     # 在庫が売る分の数量を超えている場合はエラーレスポンスを返す
     if purchase['quantity_sum'] < (sales['quantity_sum']) + int(request.data['quantity']):

@@ -16,7 +16,7 @@ class SaleSerializer(serializers.ModelSerializer):
     model = Sales
     fields = '__all__'
 
-class InventorySerizalizer(serializers.Serializer):
+class InventorySerializer(serializers.Serializer):
   id = serializers.IntegerField()
   unit = serializers.IntegerField()
   quantity = serializers.IntegerField()

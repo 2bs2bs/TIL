@@ -1,30 +1,22 @@
-from django.shortcuts import render
 from api.inventory.exception import BusinessException
+from api.inventory.authentication import RefreshJWTAuthentication
+from django.conf import settings
 from django.db.models import F, Value, Sum
 from django.db.models.functions import Coalesce
 
-# Create your views here.
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from .models import Product, Purchase, Sales
-from .serializers import InventorySerializer, ProductSerializer, PurchaseSerializer, SaleSerializer
-from rest_framework import generics, status, views, viewsets
-from rest_framework.permissions import IsAuthenticated
-from rest_framework_simplejwt.authentication import JWTAuthentication
-from rest_framework.viewsets import ModelViewSet
 from rest_framework.exceptions import NotFound
 from rest_framework.response import Response
+from rest_framework.views import APIView
+from .models import Product, Purchase, Sales
+from .serializers import InventorySerializer, ProductSerializer, PurchaseSerializer, SaleSerializer
+from rest_framework import status
+from rest_framework.viewsets import ModelViewSet
+from rest_framework_simplejwt.authentication import JWTAuthentication
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer, TokenRefreshSerializer
 
+
+# Create your views here.
 class ProductView(APIView):
-  """
-  商品操作に関する関数
-  """
-
-  # 認証クラスの指定
-  authentication_classes = [JWTAuthentication]
-  # アクセス許可の指定
-  # 認証済みのリクエスト許可
-  permission_classes = [IsAuthenticated]
 
   # 商品操作に関する関数で共通で使用する商品取得関数
   def get_object(self, pk):
@@ -33,6 +25,9 @@ class ProductView(APIView):
     except Product.DoesNotExist:
       raise NotFound
   
+  """
+  商品操作に関する関数
+  """
   def get(self, request, id=None, format=None):
     # 商品の一覧もしくは一意の商品を取得する
     if id is None:
@@ -52,7 +47,7 @@ class ProductView(APIView):
     serializer.save()
     return Response(serializer.data, status.HTTP_201_CREATED)
   
-  def post(self, request, id, format=None):
+  def put(self, request, id, format=None):
     product = self.get_object(id)
     serializer = ProductSerializer(instance=product, data=request.data)
     serializer.is_valid(raise_exception=True)
@@ -113,4 +108,28 @@ class InventoryView(APIView):
       sales = Purchase.objects.filter(product_id=id).perfetch_related('product').values("id", "quentity", type=Value('2'), date=F('sales_date'), unit=F('product__price'))
       queryset = purchase.union(sales).order_by(F("date"))
       serializer = InventorySerializer(queryset, many=True)
-    return Response(serializer.data, status.HTTP_200_OK)
+      return Response(serializer.data, status.HTTP_200_OK)
+  
+class LoginView(APIView):
+  """ユーザーのログイン処理
+  Args:
+    APIView (class): rest_framework.viewsのAPIViewを受け取る
+  """
+  # 認証クラスの指定
+  # リクエストヘッダーにtokenを差し込むといったカスタム動作をしないので素の認証クラス
+  authentication_classes = [JWTAuthentication]
+  # アクセス許可
+  permission_classes = []
+
+  def post(self, request):
+    serializer = TokenObtainPairSerializer(data=request.data)
+    serializer.is_valid(raise_exception=True)
+    access = serializer.validated_data.get("access", None)
+    refresh = serializer.validated_data.get("refresh", None)
+    if access:
+      response = Response(status=status.HTTP_200_OK)
+      max_age = settings.COOKIE_TIME
+      response.set_cookie('access', access, httponly=True, max_age=max_age)
+      response.set_cookie('refresh', refresh, httponly=True, max_age=max_age)
+      return response
+    return Response({'errMsg': 'ユーザーの認証に失敗しました'}, status=status.HTTP_401_UNAUTHORIZED)

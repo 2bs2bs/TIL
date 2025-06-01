@@ -1,4 +1,4 @@
-# Todays_I_Learning
+# Todays_I_Learned
 
-2bs2bs's Todays I Learning！！　
+2bs2bs's Todays I Learned！！　
 Do my best!!

@@ -13,3 +13,6 @@ $ git stash list
 ```
 $ git stash apply stash@{1}
 ```
+
+参考
+https://qiita.com/chihiro/items/f373873d5c2dfbd03250

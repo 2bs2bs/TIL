@@ -17,6 +17,6 @@
 linux/
   basics/        # Linuxの基礎概念・仕組み
   command/       # よく使うコマンドの整理
-  shellscript/   # shell script の書き方・実例
+  scripts/   # shell script の書き方・実例
   vim/           # Vim 操作・設定まわり
 
